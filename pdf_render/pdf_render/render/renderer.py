@@ -1,9 +1,6 @@
 from rest_framework import renderers
 
 
-from rest_framework import renderers
-
-
 class JPEGRenderer(renderers.BaseRenderer):
     media_type = 'image/jpeg'
     format = 'jpg'

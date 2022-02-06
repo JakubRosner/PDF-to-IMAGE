@@ -1,4 +1,3 @@
-from http.client import PROCESSING
 from django.db import models
 import uuid
 
