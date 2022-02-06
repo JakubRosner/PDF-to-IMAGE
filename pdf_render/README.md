@@ -6,5 +6,4 @@
 
 ## To access admin
 name = admin
-
 password = password123
