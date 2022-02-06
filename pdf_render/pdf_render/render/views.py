@@ -1,4 +1,3 @@
-from urllib import response
 from rest_framework import generics
 from .serializer import (
     CreateFileSerializer,
@@ -7,6 +6,7 @@ from .serializer import (
 )
 from .models import File, PDFImages
 from .tasks import proces_pdf
+from django.db.models import Count
 
 
 class CreateFile(generics.CreateAPIView):
@@ -23,7 +23,7 @@ class CreateFile(generics.CreateAPIView):
 class RetrieveFile(generics.RetrieveAPIView):
     serializer_class = RetrieveFileSerializer
     lookup_field = 'id'
-    queryset = File.objects.all()
+    queryset = File.objects.all().annotate(n_pages=Count('pdfimages'))
 
 
 class RetrieveImage(generics.RetrieveAPIView):

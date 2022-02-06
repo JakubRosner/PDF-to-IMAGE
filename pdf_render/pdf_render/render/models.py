@@ -11,6 +11,10 @@ class File(models.Model):
     file = models.FileField(upload_to="pdf_files")
     status = models.CharField(max_length=24, default=StatusChoices.PROCESSING)
 
+    # @property
+    # def n_pages(self):
+    #     return self.pdfimages_set.count()
+
 
 class PDFImages(models.Model):
     image = models.ImageField(upload_to="pdf_images")

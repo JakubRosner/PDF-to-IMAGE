@@ -21,11 +21,6 @@ class RetrieveFileSerializer(serializers.ModelSerializer):
             'status',
         )
 
-    def to_representation(self, instance):
-        data = super().to_representation(instance)
-        data['n_pages'] = instance.pdfimages_set.count()
-        return data
-
 
 class PDFImageSerializer(serializers.ModelSerializer):
     class Meta:
