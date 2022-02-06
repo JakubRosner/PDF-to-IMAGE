@@ -138,3 +138,5 @@ CELERY_BROKER_URL = "redis://redis"
 CELERY_IMPORTS = [
     'render.tasks',
 ]
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800
