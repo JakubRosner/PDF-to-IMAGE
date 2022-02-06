@@ -8,3 +8,5 @@
 name = admin
 
 password = password123
+
+You can set name:password in .local file
