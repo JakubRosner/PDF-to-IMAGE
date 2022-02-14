@@ -9,7 +9,7 @@ class File(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     file = models.FileField(upload_to="pdf_files")
-    status = models.CharField(max_length=24, default=StatusChoices.PROCESSING)
+    status = models.CharField(max_length=24, default=StatusChoices.PROCESSING, choices=StatusChoices.choices)
 
 
 class PDFImages(models.Model):
