@@ -1,0 +1,15 @@
+DJANGO_SETTINGS_MODULE=pdf_render.settings.local
+
+POSTGRES_DB=pdf_render
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=local
+
+POSTGRES_HOST=postgres
+
+SECRET_KEY=local
+
+DEBUG=True
+
+SUPERUSER_PASSWORD=password123
+SUPERUSER_EMAIL=admin@gmail.com
+SUPERUSER_USERNAME=admin

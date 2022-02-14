@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres
+    env_file:
+      - .local
+    volumes:
+      - pdf_render:/var/lib/postgresql/data/
+
+  host:
+    env_file:
+      - .local
+
+    ports:
+      - 8000:8000
+
+    command: /bin/bash -c 'python manage.py migrate && python manage.py superuser_if_not && python manage.py runserver 0.0.0.0:8000'
+
+    volumes:
+      - ./pdf_render:/code
+      - pdf_render:/tmp
+
+    depends_on:
+      - "postgres"
+
+  celery:
+    env_file:
+      - .local
+
+    volumes:
+      - pdf_render:/tmp
+
+volumes:
+  pdf_render:
